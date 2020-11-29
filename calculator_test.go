@@ -74,3 +74,21 @@ func TestDivide(t *testing.T) {
 		}
 	}
 }
+
+func TestSqrt(t *testing.T) {
+	t.Parallel()
+	type divideTestCase struct {
+		a    float64
+		want float64
+	}
+	testCases := []divideTestCase{
+		{a: 4, want: 2},
+		{a: 64, want: 8},
+	}
+	for _, tc := range testCases {
+		got := calculator.Sqrt(tc.a)
+		if tc.want != got {
+			t.Errorf("want %f, got %f", tc.want, got)
+		}
+	}
+}
